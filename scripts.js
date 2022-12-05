@@ -45,38 +45,6 @@
             const newId = event.target.dataset.id;
             selectTab(newId);
         });
-
-        bind(tabs, 'keydown', event => {
-            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
-                return;
-            }
-
-            let index = list.indexOf(selected);
-            if (event.which === 37) {
-                // left
-                --index;
-            } else if (event.which === 39) {
-                // right
-                ++index;
-            } else if (event.which === 36) {
-                // home
-                index = 0;
-            } else if (event.which === 35) {
-                // end
-                index = list.length - 1;
-            } else {
-                return;
-            }
-
-            if (index >= list.length) {
-                index = 0;
-            } else if (index < 0) {
-                index = list.length - 1;
-            }
-
-            selectTab(list[index]);
-            event.preventDefault();
-        });
     }
 
     function makeMenu(node) {
